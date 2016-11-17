@@ -1,0 +1,31 @@
+set nocompatible                " Use Vim defaults instead of 100% vi compatibility
+set history=50                  " Keep 50 lines of command line history
+set ruler                       " Show the cursor position all the time
+
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
+
+set number                      " Show line number on the side
+set showmatch                   " When a bracket is inserted, briefly jump to the matching one
+                                " The jump is done only if the match can be
+                                " seen on the screen. The time to show the
+                                " match can be set with 'matchtime'
+
+set incsearch                   " Immediatly search, while still typing the pattern
+set hlsearch                    " Highlight all search pattern matches
+set ignorecase                  " Case-agnostic search
+set smartcase                   " Override 'ignorecase' if pattern contains uppercase characters
+
+set expandtab                   " Use spaces for indent when TAB is hit
+                                " Allows for consistent file layout across
+                                " Various OSes
+set shiftwidth=4                " Number of spaces to use for each step of (auto)indent
+set softtabstop=4               " Number of spaces a TAB key inserts
+
+set autoindent                  " Copy indent from the previous line
+filetype plugin indent on       " Enable file-type based indentation
+syntax on                       " Syntax highlighting
+
+set textwidth=80                " Maximum row width. A longer line will be broken to fit this
+set mouse=a                     " Enable mouse
