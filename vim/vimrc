@@ -29,3 +29,16 @@ syntax on                       " Syntax highlighting
 
 set textwidth=80                " Maximum row width. A longer line will be broken to fit this
 set mouse=a                     " Enable mouse
+
+" Pathogen init
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
+" Apply solarized theme
+set background=dark
+colorscheme solarized
+
+" Settings for vim-airline plugin
+set laststatus=2                " Show vim-airline (status line) even if there is only one window
+set noshowmode                  " Avoid the double mode info display (eg. INSERT)
+let g:airline_powerline_fonts=1 " Enable powerline glyphs for better formatting
