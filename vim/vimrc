@@ -16,6 +16,9 @@ set incsearch                   " Immediatly search, while still typing the patt
 set hlsearch                    " Highlight all search pattern matches
 set ignorecase                  " Case-agnostic search
 set smartcase                   " Override 'ignorecase' if pattern contains uppercase characters
+" Map <C-L> (redraw screen) to also turn off the search highlighting until the
+" next search
+nnoremap <C-L> :nohl<CR><C-L>
 
 set expandtab                   " Use spaces for indent when TAB is hit
                                 " Allows for consistent file layout across
@@ -29,6 +32,8 @@ syntax on                       " Syntax highlighting
 
 set textwidth=80                " Maximum row width. A longer line will be broken to fit this
 set mouse=a                     " Enable mouse
+set backspace=indent,eol,start  " Allow backspacing over autoindent, line breaks and start of insert action
+set wildmenu                    " Command line menu suggestions
 
 " Pathogen init
 runtime bundle/vim-pathogen/autoload/pathogen.vim
