@@ -47,3 +47,9 @@ colorscheme solarized
 set laststatus=2                " Show vim-airline (status line) even if there is only one window
 set noshowmode                  " Avoid the double mode info display (eg. INSERT)
 let g:airline_powerline_fonts=1 " Enable powerline glyphs for better formatting
+
+" Settings for NERDTree
+" Toggle the NERDTree with spacebar
+nnoremap <Space> :NERDTreeToggle<CR>
+" Close vim when the only open window left is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
