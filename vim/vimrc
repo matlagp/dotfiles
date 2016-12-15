@@ -1,6 +1,7 @@
 set nocompatible                " Use Vim defaults instead of 100% vi compatibility
 set history=50                  " Keep 50 lines of command line history
 set ruler                       " Show the cursor position all the time
+let mapleader="\<Space>"        " Set spacebar as a leader key for shortcuts
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
@@ -49,7 +50,6 @@ set noshowmode                  " Avoid the double mode info display (eg. INSERT
 let g:airline_powerline_fonts=1 " Enable powerline glyphs for better formatting
 
 " Settings for NERDTree
-" Toggle the NERDTree with spacebar
-nnoremap <Space> :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 " Close vim when the only open window left is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
