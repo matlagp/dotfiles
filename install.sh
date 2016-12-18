@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Installation script, early version
+# TODO: Add a minimal installation switch (omit some heavy-weight components)
 
 # Backup a file by appending a .bak suffix to it
 function backup {
@@ -31,7 +32,7 @@ function usage {
 
 vim=false
 fish=false
-destination="$HOME"
+destination="$HOME" # Leave it at that to perform user-wide installation
 force=false
 dotfiles_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # Get dotfiles path
 # BASH_SOURCE[0] returns relative path to this script (works well as long as
@@ -97,6 +98,9 @@ if $vim; then
         echo "Error while setting up .vimrc"
         exit 1
     fi
+
+    echo "You need to install dotfiles/vim/bundle/YouCompleteMe manually"
+    echo "Act according to http://valloric.github.io/YouCompleteMe/"
 fi
 
 if $fish; then

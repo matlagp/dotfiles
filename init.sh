@@ -5,10 +5,10 @@
 # It initializes the submodules in vim/bundle
 # It's an early version, just to set up a foothold
 
-echo "Initializing the repository..."
-git submodule init
-
-echo -e "\nPopulating submodules..."
-git submodule update
+# I don't know enough about git submodule. Need to read up on it, right now it's
+# sort of a magic keyword to init the submodules.
+echo "Initializing the repository and populating submodules..."
+git submodule update --init --recursive
 
 echo "Done!"
+echo "Now you can run install.sh"
