@@ -32,6 +32,7 @@ filetype plugin indent on       " Enable file-type based indentation
 syntax on                       " Syntax highlighting
 
 set textwidth=80                " Maximum row width. A longer line will be broken to fit this
+set colorcolumn=+1              " Highlight the column after the textwidth
 set mouse=a                     " Enable mouse
 set backspace=indent,eol,start  " Allow backspacing over autoindent, line breaks and start of insert action
 set wildmenu                    " Command line menu suggestions
