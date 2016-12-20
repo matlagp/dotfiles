@@ -44,6 +44,7 @@ execute pathogen#infect()
 " Apply solarized theme
 set background=dark
 colorscheme solarized
+highlight clear SignColumn      " Prevent gutter from becoming ugly gray
 
 " Settings for vim-airline plugin
 set laststatus=2                " Show vim-airline (status line) even if there is only one window
