@@ -1,14 +1,13 @@
 #!/bin/bash
 
 # Installation script, early version
-# TODO: Add a minimal installation switch (omit some heavy-weight components)
 
 # Backup a file by appending a .bak suffix to it
 function backup {
     echo "Backing up $1"
     if [ -e "${1}.bak" -a $force = false ]; then      # Don't overwrite, unless F is set
         echo "Backup of $1 already exists: $(pwd)/${1}.bak"
-        echo "Check it manually"
+        echo "Check it manually or use -F switch to overwrite"
         echo "Aborting"
         exit 1
     else
@@ -26,7 +25,8 @@ function usage {
             -v: install vim files
             -f: install fish files
             -d DEST: install in DEST
-            -F: force installation, overwrite backups"
+            -F: force installation, overwrite backups
+            -h: print this message"
     return
 }
 
@@ -40,7 +40,7 @@ dotfiles_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # Get dotfiles 
 # it, print and assign.
 
 # Command line arguments parsing
-while getopts ":vfFad:" opt; do            # Use getopts parser
+while getopts ":vfFad:h" opt; do            # Use getopts parser
     case $opt in
         a)  vim=true
             fish=true
@@ -53,6 +53,9 @@ while getopts ":vfFad:" opt; do            # Use getopts parser
             ;;
         d)  destination="$OPTARG"
             ;;
+        h)  usage
+            exit 0
+            ;;
         \?) echo "Invalid option: -$OPTARG"
             usage
             exit 1
@@ -64,6 +67,17 @@ while getopts ":vfFad:" opt; do            # Use getopts parser
     esac
 done
 
+# Take care of submodule initialization
+current_dir="$(pwd)"    # Hold on, will be here right back
+cd "$dotfiles_dir"
+# I don't know enough about git submodule. Need to read up on it, right now it's
+# sort of a magical keyword to sync up the submodules.
+echo "Initializing the repository and populating submodules..."
+git submodule update --init --recursive
+cd "$current_dir"       # Had to do it, so wildcards expansion works as
+                        # expected. Otherwise . would be equal to $dotfiles_dir
+
+echo "Beginning installation..."
 cd "$destination"   # Installation directory
 
 echo "Dotfiles repo set to $dotfiles_dir"
@@ -102,6 +116,7 @@ if $vim; then
     echo "You need to install dotfiles/vim/bundle/YouCompleteMe manually"
     echo "Act according to http://valloric.github.io/YouCompleteMe/"
     echo "Don't forget to install checkers for Syntastic and completers for YCM"
+    echo
 fi
 
 if $fish; then
