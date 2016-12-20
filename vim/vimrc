@@ -54,3 +54,16 @@ let g:airline_powerline_fonts=1 " Enable powerline glyphs for better formatting
 nnoremap <Leader>n :NERDTreeToggle<CR>
 " Close vim when the only open window left is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Settings for YouCompleteMe
+" Set the default config file for semantic C-family languages completion
+let g:ycm_global_ycm_extra_conf="~/.vim/ycm_default_conf.py"
+let g:ycm_complete_in_comments=1            " Use YCM completion in comments
+let g:ycm_seed_identifiers_with_syntax=1    " Use language keywords as completions
+let g:ycm_key_detailed_diagnostics="<Leader>yd"
+" GoTo symbol's declaration/definition:
+nnoremap <Leader>yg :YcmCompleter GoTo<CR>
+" YCM type recognition utility:
+nnoremap <Leader>yt :YcmCompleter GetType<CR>
+" Look up the appropriate documentation:
+nnoremap <Leader>yo :YcmCompleter GetDoc<CR>
