@@ -101,6 +101,7 @@ if $vim; then
 
     echo "You need to install dotfiles/vim/bundle/YouCompleteMe manually"
     echo "Act according to http://valloric.github.io/YouCompleteMe/"
+    echo "Don't forget to install checkers for Syntastic and completers for YCM"
 fi
 
 if $fish; then

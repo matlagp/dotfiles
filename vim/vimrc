@@ -67,3 +67,11 @@ nnoremap <Leader>yg :YcmCompleter GoTo<CR>
 nnoremap <Leader>yt :YcmCompleter GetType<CR>
 " Look up the appropriate documentation:
 nnoremap <Leader>yo :YcmCompleter GetDoc<CR>
+
+" Settings for syntastic
+" YCM uses the following settings as well:
+let g:syntastic_warning_symbol="w>" " Clearer warning & error signs
+let g:syntastic_error_symbol="e>"
+" End of YCM shared section
+" Explicit check:
+nnoremap <Leader>sc :SyntasticCheck<CR>
