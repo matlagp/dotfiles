@@ -112,6 +112,14 @@ if $vim; then
         echo "Error while setting up .vimrc"
         exit 1
     fi
+
+    # Install powerline-patched fonts for good vim-airline experience
+    # First, a dirty trick to make fonts' installation script think $destination
+    # is $HOME
+    export HOME="$destination"
+    /bin/bash $dotfiles_dir/vim/bundle/fonts/install.sh
+    echo "In case of statusline problems use one of Powerline fonts"
+    echo
 fi
 
 if $fish; then
