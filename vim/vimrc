@@ -42,6 +42,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " Apply solarized theme
+set termguicolors
 set background=dark
 colorscheme solarized
 highlight clear SignColumn      " Prevent gutter from becoming ugly gray
