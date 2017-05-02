@@ -52,6 +52,8 @@ highlight clear SignColumn      " Prevent gutter from becoming ugly gray
 set laststatus=2                " Show vim-airline (status line) even if there is only one window
 set noshowmode                  " Avoid the double mode info display (eg. INSERT)
 let g:airline_powerline_fonts=1 " Enable powerline glyphs for better formatting
+" Display buffer list on top:
+let g:airline#extensions#tabline#enabled=1
 
 " Settings for NERDTree
 nnoremap <Leader>n :NERDTreeToggle<CR>
