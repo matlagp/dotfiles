@@ -1,0 +1,5 @@
+# Per-repo directory for ignored files
+local-ignore/
+
+# asdf-vm tool versions
+*.tool-versions

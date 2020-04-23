@@ -1,0 +1,11 @@
+[alias]
+	a = add
+
+	c = commit
+	cm = commit -m
+	oops = commit --amend --no-edit
+	unstage = reset HEAD
+
+	co = checkout
+
+	l = log --graph --oneline
